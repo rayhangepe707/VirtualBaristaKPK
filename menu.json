@@ -1,0 +1,1218 @@
+[
+  {
+    "id_minuman": "K001",
+    "nama_minuman": "Kopi ES",
+    "kategori": "Kopi",
+    "harga": 9000,
+    "deskripsi_edukasi": "Kopi hitam dingin dengan karakter rasa pahit yang khas dan sensasi gurih kopi yang bikin nagih,dan bikin mata melek.",
+    "profil_rasa": {
+      "manis": 6,
+      "asam": 4,
+      "pedas": 0,
+      "pahit": 7
+    },
+    "tags": "pahit, gurih, nagih, kopi",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Ayam Balado",
+      "gambar_makanan": "/static/Menukpk/Ayam Balado.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Kopi ES.png"
+  },
+  {
+    "id_minuman": "K002",
+    "nama_minuman": "Kopi Susu",
+    "kategori": "Kopi",
+    "harga": 10000,
+    "deskripsi_edukasi": "Perpaduan kopi dan susu yang pas, menghadirkan rasa manis, sangat creamy, dengan sentuhan kopi yang tetap berasa, dan bikin mata melek.",
+    "profil_rasa": {
+      "manis": 8,
+      "asam": 4,
+      "pedas": 0,
+      "pahit": 2
+    },
+    "tags": "pahit, manis, creamy, gurih, nagih, kopi",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Ayam Saus Mentega",
+      "gambar_makanan": "/static/Menukpk/Ayam Saus Mentega.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Kopi susu.png"
+  },
+  {
+    "id_minuman": "K003",
+    "nama_minuman": "Milo",
+    "kategori": "Minuman Malt",
+    "harga": 11000,
+    "deskripsi_edukasi": "Minuman coklat malt Milo klasik yang sangat manis, creamy, dan disukai oleh semua kalangan.",
+    "profil_rasa": {
+      "manis": 8,
+      "asam": 2,
+      "pedas": 0,
+      "pahit": 2
+    },
+    "tags": "manis, creamy, gurih, nagih, minuman coklat",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Ayam Salted Egg",
+      "gambar_makanan": "/static/Menukpk/Ayam Salted Egg.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Milo.png"
+  },
+  {
+    "id_minuman": "K004",
+    "nama_minuman": "Kopmil",
+    "kategori": "Kopi",
+    "harga": 12000,
+    "deskripsi_edukasi": "Kombinasi unik kopi dan Milo menghasilkan rasa manis legit, tekstur creamy, namun sensasi ngopinya tetap dapat.",
+    "profil_rasa": {
+      "manis": 7,
+      "asam": 2,
+      "pedas": 0,
+      "pahit": 5
+    },
+    "tags": "manis, creamy, gurih, nagih, kopi",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Ayam Rica Rica",
+      "gambar_makanan": "/static/Menukpk/Ayam Rica Rica.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Kopmil.png"
+  },
+  {
+    "id_minuman": "K005",
+    "nama_minuman": "Cadbury",
+    "kategori": "Minuman Coklat",
+    "harga": 13000,
+    "deskripsi_edukasi": "Coklat premium Cadbury yang kaya rasa, sangat manis, dan teksturnya lumer creamy di tenggorokan.",
+    "profil_rasa": {
+      "manis": 8,
+      "asam": 2,
+      "pedas": 0,
+      "pahit": 2
+    },
+    "tags": "manis, creamy, gurih, nagih, minuman coklat",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Ayam Lada Hitam",
+      "gambar_makanan": "/static/Menukpk/Ayam Lada Hitam.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Cadbury.png"
+  },
+  {
+    "id_minuman": "K006",
+    "nama_minuman": "Kopi Cadbury",
+    "kategori": "Kopi",
+    "harga": 14000,
+    "deskripsi_edukasi": "Pecinta kopi dan coklat wajib coba! Pahitnya kopi berpadu sempurna dengan manis dan creamy-nya coklat Cadbury.",
+    "profil_rasa": {
+      "manis": 7,
+      "asam": 4,
+      "pedas": 0,
+      "pahit": 7
+    },
+    "tags": "pahit, manis, creamy, gurih, nagih, kopi",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Ayam Salted Egg",
+      "gambar_makanan": "/static/Menukpk/Ayam Salted Egg.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Kopi Cadbury.png"
+  },
+  {
+    "id_minuman": "K007",
+    "nama_minuman": "Ovaltine",
+    "kategori": "Minuman Malt",
+    "harga": 13000,
+    "deskripsi_edukasi": "Minuman malt Ovaltine yang memberikan perpaduan rasa manis legit dan gurih nagih khas sereal malt.",
+    "profil_rasa": {
+      "manis": 9,
+      "asam": 1,
+      "pedas": 0,
+      "pahit": 2
+    },
+    "tags": "manis, gurih, nagih, minuman malt",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Nasi Goreng",
+      "gambar_makanan": "/static/Menukpk/Nasi Goreng.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Ovaltine.png"
+  },
+  {
+    "id_minuman": "K008",
+    "nama_minuman": "Kopi Ovaltine",
+    "kategori": "Kopi",
+    "harga": 14000,
+    "deskripsi_edukasi": "Sentuhan pahit kopi dengan manis creamy Ovaltine menciptakan keseimbangan gurih yang unik di lidah.",
+    "profil_rasa": {
+      "manis": 7,
+      "asam": 5,
+      "pedas": 0,
+      "pahit": 2
+    },
+    "tags": "pahit, manis, creamy, gurih, nagih, kopi",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Minas",
+      "gambar_makanan": "/static/Menukpk/Minas.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Kopi Ovaltine.png"
+  },
+  {
+    "id_minuman": "K009",
+    "nama_minuman": "Coklat Beng Beng",
+    "kategori": "Minuman Coklat",
+    "harga": 13000,
+    "deskripsi_edukasi": "Minuman coklat dengan sensasi rasa wafer Beng-Beng yang manis, gurih, dan pastinya bikin ketagihan.",
+    "profil_rasa": {
+      "manis": 9,
+      "asam": 1,
+      "pedas": 0,
+      "pahit": 2
+    },
+    "tags": "manis, gurih, nagih, minuman coklat",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Nasi Telur Kecap",
+      "gambar_makanan": "/static/Menukpk/Nasi Telur Kecap.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Coklat Beng Beng.png"
+  },
+  {
+    "id_minuman": "K010",
+    "nama_minuman": "Kopi Beng Beng",
+    "kategori": "Kopi",
+    "harga": 14000,
+    "deskripsi_edukasi": "Campuran kopi dengan rasa khas Beng-Beng. Manis, creamy, dengan sedikit jejak pahit kopi yang nikmat.",
+    "profil_rasa": {
+      "manis": 7,
+      "asam": 5,
+      "pedas": 0,
+      "pahit": 2
+    },
+    "tags": "pahit, manis, creamy, gurih, nagih, kopi",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Nasi Telur Dadar",
+      "gambar_makanan": "/static/Menukpk/Nasi Telur Dadar.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Kopi Beng Beng.png"
+  },
+  {
+    "id_minuman": "K011",
+    "nama_minuman": "Cappucino",
+    "kategori": "Kopi",
+    "harga": 10000,
+    "deskripsi_edukasi": "Kopi klasik dengan foam tebal yang sangat creamy. Pilihan pas bagi penikmat rasa kopi pahit nan gurih susu.",
+    "profil_rasa": {
+      "manis": 6,
+      "asam": 2,
+      "pedas": 0,
+      "pahit": 5
+    },
+    "tags": "pahit, creamy, gurih, nagih, kopi",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Ayam Saus Mentega",
+      "gambar_makanan": "/static/Menukpk/Ayam Saus Mentega.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Cappucino.png"
+  },
+  {
+    "id_minuman": "K012",
+    "nama_minuman": "Kopi Ginseng",
+    "kategori": "Kopi",
+    "harga": 13000,
+    "deskripsi_edukasi": "Kopi bertenaga dengan ekstrak ginseng. Pahit, manis, dan creamy menyatu memberikan semangat ekstra.",
+    "profil_rasa": {
+      "manis": 5,
+      "asam": 5,
+      "pedas": 0,
+      "pahit": 5
+    },
+    "tags": "pahit, manis, creamy, gurih, nagih, kopi",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Ayam Lada Hitam",
+      "gambar_makanan": "/static/Menukpk/Ayam Lada Hitam.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Kopi Ginseng.png"
+  },
+  {
+    "id_minuman": "K013",
+    "nama_minuman": "Nutrisari",
+    "kategori": "Minuman Serbuk",
+    "harga": 10000,
+    "deskripsi_edukasi": "Minuman rasa jeruk yang menyegarkan dengan kombinasi rasa asam manis pengusir dahaga.",
+    "profil_rasa": {
+      "manis": 6,
+      "asam": 7,
+      "pedas": 0,
+      "pahit": 2
+    },
+    "tags": "segar, asam, gurih, nagih, minuman serbuk",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Indomie Goreng Aceh",
+      "gambar_makanan": "/static/Menukpk/Indomie Goreng Aceh.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Nutrisari.png"
+  },
+  {
+    "id_minuman": "K014",
+    "nama_minuman": "Nutrisari Susu",
+    "kategori": "Minuman Serbuk",
+    "harga": 12000,
+    "deskripsi_edukasi": "Sensasi asam segar dari Nutrisari berpadu harmonis dengan susu yang menjadikannya segar sekaligus creamy.",
+    "profil_rasa": {
+      "manis": 8,
+      "asam": 5,
+      "pedas": 0,
+      "pahit": 2
+    },
+    "tags": "segar, asam, gurih, nagih, minuman serbuk",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Indomie Goreng Rendang",
+      "gambar_makanan": "/static/Menukpk/Indomie Goreng Rendang.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Nutrisari Susu.png"
+  },
+  {
+    "id_minuman": "K015",
+    "nama_minuman": "Es Cincau",
+    "kategori": "Minuman Herbal",
+    "harga": 5000,
+    "deskripsi_edukasi": "Minuman cincau herbal alami yang sangat segar dan manis, penawar dahaga terbaik saat cuaca terik.",
+    "profil_rasa": {
+      "manis": 5,
+      "asam": 5,
+      "pedas": 0,
+      "pahit": 4
+    },
+    "tags": "segar, manis, gurih, nagih, minuman herbal",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Ayam Balado",
+      "gambar_makanan": "/static/Menukpk/Ayam Balado.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Es Cincau.png"
+  },
+  {
+    "id_minuman": "K016",
+    "nama_minuman": "Cincau Susu",
+    "kategori": "Minuman Campuran",
+    "harga": 10000,
+    "deskripsi_edukasi": "Cincau hitam yang dipadukan dengan susu kental. Memberikan sensasi manis, creamy, dan menyegarkan tubuh.",
+    "profil_rasa": {
+      "manis": 7,
+      "asam": 6,
+      "pedas": 0,
+      "pahit": 4
+    },
+    "tags": "manis, creamy, segar, gurih, nagih, minuman herbal",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Ayam Rica Rica",
+      "gambar_makanan": "/static/Menukpk/Ayam Rica Rica.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Cincau Susu.png"
+  },
+  {
+    "id_minuman": "K017",
+    "nama_minuman": "Jeruk Nipis",
+    "kategori": "Minuman Herbal",
+    "harga": 11000,
+    "deskripsi_edukasi": "Perasan jeruk nipis asli yang menghadirkan keasaman luar biasa segar alami untuk membangkitkan mood.",
+    "profil_rasa": {
+      "manis": 2,
+      "asam": 9,
+      "pedas": 2,
+      "pahit": 2
+    },
+    "tags": "segar, asam, gurih, nagih, minuman buah, batuk",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Nasi Goreng",
+      "gambar_makanan": "/static/Menukpk/Nasi Goreng.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Jeruk Nipis.png"
+  },
+  {
+    "id_minuman": "K018",
+    "nama_minuman": "Teh Es",
+    "kategori": "Teh",
+    "harga": 5000,
+    "deskripsi_edukasi": "Teh manis dingin legendaris yang manis, sangat segar, dan pantang ditolak buat disandingin sama makanan apa aja.",
+    "profil_rasa": {
+      "manis": 7,
+      "asam": 5,
+      "pedas": 0,
+      "pahit": 1
+    },
+    "tags": "segar, manis, gurih, nagih, teh",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Ayam Balado",
+      "gambar_makanan": "/static/Menukpk/Ayam Balado.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Teh Es.png"
+  },
+  {
+    "id_minuman": "K019",
+    "nama_minuman": "Teh Susu",
+    "kategori": "Teh",
+    "harga": 10000,
+    "deskripsi_edukasi": "Kombinasi klasik teh seduh dan susu kental manis yang gurih, creamy, dan manisnya sangat pas di lidah.",
+    "profil_rasa": {
+      "manis": 9,
+      "asam": 4,
+      "pedas": 0,
+      "pahit": 2
+    },
+    "tags": "manis, creamy, gurih, nagih, teh",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Ayam Lada Hitam",
+      "gambar_makanan": "/static/Menukpk/Ayam Lada Hitam.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Teh Susu.png"
+  },
+  {
+    "id_minuman": "K020",
+    "nama_minuman": "Teh Tarik",
+    "kategori": "Teh",
+    "harga": 12000,
+    "deskripsi_edukasi": "Teh tarik autentik dengan buih lembut. Rasanya sangat manis, creamy, dan memberikan kehangatan memanjakan.",
+    "profil_rasa": {
+      "manis": 8,
+      "asam": 2,
+      "pedas": 0,
+      "pahit": 4
+    },
+    "tags": "manis, creamy, gurih, nagih, teh",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Ayam Saus Mentega",
+      "gambar_makanan": "/static/Menukpk/Ayam Saus Mentega.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Teh Tarik.png"
+  },
+  {
+    "id_minuman": "K021",
+    "nama_minuman": "Serunai",
+    "kategori": "Minuman Herbal",
+    "harga": 11000,
+    "deskripsi_edukasi": "Minuman segar dengan perpaduan rasa yang sedikit asam menyegarkan namun tetap ditutup rasa gurih nagih.",
+    "profil_rasa": {
+      "manis": 2,
+      "asam": 8,
+      "pedas": 1,
+      "pahit": 2
+    },
+    "tags": "asam, segar, gurih, nagih, minuman susu, segar",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Ayam Rica Rica",
+      "gambar_makanan": "/static/Menukpk/Ayam Rica Rica.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Serunai.png"
+  },
+  {
+    "id_minuman": "K022",
+    "nama_minuman": "Extrajoss Susu",
+    "kategori": "Minuman Energi",
+    "harga": 10000,
+    "deskripsi_edukasi": "Minuman energi berkarbonasi tipis dicampur susu. Sensasi manis, segar, dan pastinya gurih siap nge-boost tenaga!",
+    "profil_rasa": {
+      "manis": 8,
+      "asam": 8,
+      "pedas": 0,
+      "pahit": 2
+    },
+    "tags": "segar, manis, gurih, nagih, minuman energi, menambah stamina, buat orang cape",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Ayam Lada Hitam",
+      "gambar_makanan": "/static/Menukpk/Ayam Lada Hitam.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Extrajoss Susu.png"
+  },
+  {
+    "id_minuman": "K023",
+    "nama_minuman": "Kukubima Susu",
+    "kategori": "Minuman Energi",
+    "harga": 10000,
+    "deskripsi_edukasi": "Campuran sirup Kukubima rasa buah dan susu. Menghasilkan rasa manis segar memecah dahaga dan penambah energi.",
+    "profil_rasa": {
+      "manis": 8,
+      "asam": 8,
+      "pedas": 0,
+      "pahit": 2
+    },
+    "tags": "segar, manis, gurih, nagih, minuman energi, menambah stamina, buat orang cape",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Ayam Salted Egg",
+      "gambar_makanan": "/static/Menukpk/Ayam Salted Egg.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Kukubima Susu.png"
+  },
+  {
+    "id_minuman": "K024",
+    "nama_minuman": "Greentea Ori",
+    "kategori": "Teh",
+    "harga": 7000,
+    "deskripsi_edukasi": "Teh hijau orisinal yang sangat ringan dan menyegarkan. Manisnya tipis pas untuk bersantai memanjakan mood.",
+    "profil_rasa": {
+      "manis": 2,
+      "asam": 2,
+      "pedas": 0,
+      "pahit": 2
+    },
+    "tags": "segar, manis, gurih, nagih, teh",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Nasi Goreng",
+      "gambar_makanan": "/static/Menukpk/Nasi Goreng.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Greentea Ori.png"
+  },
+  {
+    "id_minuman": "K025",
+    "nama_minuman": "Matcha",
+    "kategori": "Teh",
+    "harga": 12000,
+    "deskripsi_edukasi": "Pecinta matcha wajib merapat! Rasa teh hijau Jepang pekat yang gurih manis, earthy, dan sangat menyegarkan.",
+    "profil_rasa": {
+      "manis": 8,
+      "asam": 2,
+      "pedas": 0,
+      "pahit": 2
+    },
+    "tags": "manis, segar, gurih, nagih, teh",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Minas",
+      "gambar_makanan": "/static/Menukpk/Minas.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Matcha.png"
+  },
+  {
+    "id_minuman": "K026",
+    "nama_minuman": "Kopi Matcha",
+    "kategori": "Kopi",
+    "harga": 13000,
+    "deskripsi_edukasi": "Fusion unik antara kopi espresso dan matcha pekat. Kombinasi manis creamy dan gurih kopinya balance banget.",
+    "profil_rasa": {
+      "manis": 7,
+      "asam": 6,
+      "pedas": 0,
+      "pahit": 5
+    },
+    "tags": "manis, creamy, gurih, nagih, kopi",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Nasi Telur Kecap",
+      "gambar_makanan": "/static/Menukpk/Nasi Telur Kecap.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Kopi Matcha.png"
+  },
+  {
+    "id_minuman": "K027",
+    "nama_minuman": "Milo Matcha",
+    "kategori": "Minuman Campuran",
+    "harga": 15000,
+    "deskripsi_edukasi": "Menu kreatif buat yang bimbang pilih Milo atau Matcha. Rasa manis coklat creamy bergabung dengan sentuhan earthy teh hijau.",
+    "profil_rasa": {
+      "manis": 8,
+      "asam": 3,
+      "pedas": 0,
+      "pahit": 3
+    },
+    "tags": "manis, creamy, gurih, nagih, minuman campuran",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Nasi Telur Dadar",
+      "gambar_makanan": "/static/Menukpk/Nasi Telur Dadar.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Milo Matcha.png"
+  },
+  {
+    "id_minuman": "K028",
+    "nama_minuman": "Thaitea",
+    "kategori": "Teh",
+    "harga": 10000,
+    "deskripsi_edukasi": "Teh otentik khas Thailand. Warnanya menggoda dan rasanya super manis, creamy susu, dan punya aroma gurih yang kaya.",
+    "profil_rasa": {
+      "manis": 7,
+      "asam": 2,
+      "pedas": 0,
+      "pahit": 3
+    },
+    "tags": "manis, creamy, gurih, nagih, teh",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Nasi Telur Salted Egg",
+      "gambar_makanan": "/static/Menukpk/Nasi Telur Salted Egg.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Thaitea.png"
+  },
+  {
+    "id_minuman": "K029",
+    "nama_minuman": "Milo Thaitea",
+    "kategori": "Minuman Campuran",
+    "harga": 15000,
+    "deskripsi_edukasi": "Siap dimanja? Gabungan susu Thaitea yang manis creamy dengan sensasi gurih coklat Milo. Lumer dan nagih banget!",
+    "profil_rasa": {
+      "manis": 9,
+      "asam": 2,
+      "pedas": 0,
+      "pahit": 3
+    },
+    "tags": "manis, creamy, gurih, nagih, minuman campuran",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Indomie Goreng",
+      "gambar_makanan": "/static/Menukpk/Indomie Goreng .png"
+    },
+    "gambar_minuman": "/static/Menukpk/Milo Thaitea.png"
+  },
+  {
+    "id_minuman": "K030",
+    "nama_minuman": "Susu Putih",
+    "kategori": "Minuman Malt",
+    "harga": 9000,
+    "deskripsi_edukasi": "Susu putih murni bergizi tinggi. Rasanya sangat gurih, manis, dan creamy. Pilihan comfort drink paling aman.",
+    "profil_rasa": {
+      "manis": 9,
+      "asam": 1,
+      "pedas": 0,
+      "pahit": 2
+    },
+    "tags": "manis, creamy, gurih, nagih, minuman susu",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Indomie Goreng Aceh",
+      "gambar_makanan": "/static/Menukpk/Indomie Goreng Aceh.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Susu Putih.png"
+  },
+  {
+    "id_minuman": "K031",
+    "nama_minuman": "Susu Jahe",
+    "kategori": "Minuman Herbal",
+    "harga": 10000,
+    "deskripsi_edukasi": "Saat kurang sehat atau kedinginan, Susu Jahe ini solusinya! Sensasi jahenya pedas hangat, dibalut manis creamy susu.",
+    "profil_rasa": {
+      "manis": 6,
+      "asam": 2,
+      "pedas": 8,
+      "pahit": 6
+    },
+    "tags": "pedas, manis, creamy, gurih, nagih, minuman susu, batuk, masuk angin",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Indomie Goreng Rendang",
+      "gambar_makanan": "/static/Menukpk/Indomie Goreng Rendang.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Susu Jahe.png"
+  },
+  {
+    "id_minuman": "K032",
+    "nama_minuman": "Teh Susu Jahe",
+    "kategori": "Teh",
+    "harga": 12000,
+    "deskripsi_edukasi": "Rempah teh berkolaborasi dengan jahe pedas dan susu creamy manis. Dijamin melegakan tenggorokan dan badan.",
+    "profil_rasa": {
+      "manis": 6,
+      "asam": 2,
+      "pedas": 5,
+      "pahit": 5
+    },
+    "tags": "manis, creamy, gurih, nagih, teh, batuk, anget",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Indomie Rebus",
+      "gambar_makanan": "/static/Menukpk/Indomie Rebus .png"
+    },
+    "gambar_minuman": "/static/Menukpk/Teh Susu Jahe.png"
+  },
+  {
+    "id_minuman": "K033",
+    "nama_minuman": "Lemontea",
+    "kategori": "Minuman Herbal",
+    "harga": 11000,
+    "deskripsi_edukasi": "Teh perasan lemon yang sangat asam, segar, namun manis penyejuk hati. Bagus dipesan saat sedang kurang enak badan.",
+    "profil_rasa": {
+      "manis": 4,
+      "asam": 8,
+      "pedas": 0,
+      "pahit": 2
+    },
+    "tags": "segar, asam, gurih, nagih, minuman buah, batuk, radang",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Nasi Telur Kecap",
+      "gambar_makanan": "/static/Menukpk/Nasi Telur Kecap.png"
+    },
+    "gambar_minuman": "/static/Menukpk/Lemontea.png"
+  },
+  {
+    "id_minuman": "K034",
+    "nama_minuman": "C1000",
+    "kategori": "Minuman Serbuk",
+    "harga": 11000,
+    "deskripsi_edukasi": "Suplemen vitamin berenergi dengan citarasa asam kuat nan segar. Sangat membantu sistem imun dan rasa segar seketika.",
+    "profil_rasa": {
+      "manis": 4,
+      "asam": 8,
+      "pedas": 0,
+      "pahit": 2
+    },
+    "tags": "segar, asam, gurih, nagih, minuman serbuk, vitamin, batuk, flu",
+    "rekomendasi_makanan": {
+      "nama_makanan": "Mi Nyemek",
+      "gambar_makanan": "static/Menukpk/Mi Nyemek.png"
+    },
+    "gambar_minuman": "/static/Menukpk/C1000.png"
+  },
+  {
+    "id_makanan": "K035",
+    "nama_makanan": "Bakmi Ori",
+    "kategori": "Mie",
+    "harga": 18000,
+    "deskripsi_edukasi": "Bakmi kenyal racikan KPK dengan bumbu original. Cita rasanya mengutamakan gurih murni kaldu yang sangat bikin nagih.",
+    "profil_rasa": {
+      "manis": 5,
+      "asam": 5,
+      "pedas": 3,
+      "pahit": 2
+    },
+    "tags": "gurih, gurih, nagih, kopi",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Teh Es",
+      "gambar_minuman": "/static/Menukpk/Teh Es.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Bakmi Ori.png"
+  },
+  {
+    "id_makanan": "K036",
+    "nama_makanan": "Bakmi Charsiu",
+    "kategori": "Mie",
+    "harga": 22000,
+    "deskripsi_edukasi": "Menu bakmi mewah dengan taburan daging ayam charsiu di atasnya. Menghadirkan rasa manis gurih ala masakan Tiongkok halal.",
+    "profil_rasa": {
+      "manis": 6,
+      "asam": 6,
+      "pedas": 3,
+      "pahit": 2
+    },
+    "tags": "gurih, gurih, nagih, kopi",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Teh Tarik",
+      "gambar_minuman": "/static/Menukpk/Teh Tarik.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Bakmi Charsiu.png"
+  },
+  {
+    "id_makanan": "K037",
+    "nama_makanan": "Bakmi Yamin",
+    "kategori": "Mie",
+    "harga": 20000,
+    "deskripsi_edukasi": "Buat yang suka hidangan manis, Bakmi Yamin pakai bumbu racikan kecap spesial sehingga legit, manis, nan gurih berpadu jadi satu.",
+    "profil_rasa": {
+      "manis": 9,
+      "asam": 6,
+      "pedas": 2,
+      "pahit": 2
+    },
+    "tags": "manis, gurih, manis, gurih, nagih, kopi",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Milo Matcha",
+      "gambar_minuman": "/static/Menukpk/Milo Matcha.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Bakmi Yamin.png"
+  },
+  {
+    "id_makanan": "K038",
+    "nama_makanan": "Bakmi Chili Oil",
+    "kategori": "Mie",
+    "harga": 22000,
+    "deskripsi_edukasi": "Bakmi kekinian yang disiram Chili Oil merah pekat yang sangat pedas nendang, namun dasar bumbunya sangat gurih.",
+    "profil_rasa": {
+      "manis": 2,
+      "asam": 2,
+      "pedas": 10,
+      "pahit": 7
+    },
+    "tags": "pedas, gurih, pedas, gurih, nagih, kopi",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Jeruk Nipis",
+      "gambar_minuman": "/static/Menukpk/Jeruk Nipis.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Bakmi Chili Oil.png"
+  },
+  {
+    "id_makanan": "K039",
+    "nama_makanan": "Mi Gundu",
+    "kategori": "Mie",
+    "harga": 18000,
+    "deskripsi_edukasi": "Sajian mi khas dengan penekanan pada bumbu otentik yang tidak neko-neko, sangat pas buat memanjakan lidah lewat kegurihannya.",
+    "profil_rasa": {
+      "manis": 6,
+      "asam": 2,
+      "pedas": 3,
+      "pahit": 2
+    },
+    "tags": "gurih, gurih, nagih, kopi",
+    "rekomendasi_minuman": {
+      "nama_minuman": "C1000",
+      "gambar_minuman": "/static/Menukpk/C1000.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Mi Gundu.png"
+  },
+  {
+    "id_makanan": "K040",
+    "nama_makanan": "Mi Tek Tek",
+    "kategori": "Mie",
+    "harga": 18000,
+    "deskripsi_edukasi": "Terinpsirasi dari mi tek-tek gerobakan dengan kuah nyemek yang kaya bumbu masakan pedas, menghangatkan dan super lezat.",
+    "profil_rasa": {
+      "manis": 4,
+      "asam": 6,
+      "pedas": 8,
+      "pahit": 7
+    },
+    "tags": "pedas, gurih, pedas, gurih, nagih, kopi",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Cadbury",
+      "gambar_minuman": "/static/Menukpk/Cadbury.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Mi Tek Tek.png"
+  },
+  {
+    "id_makanan": "K041",
+    "nama_makanan": "Pempek Campur",
+    "kategori": "Snack",
+    "harga": 18000,
+    "deskripsi_edukasi": "Aneka hidangan pempek ikan segar yang disiram saus cuko khas Palembang yang asam, manis tipis, dan pedas nikmat.",
+    "profil_rasa": {
+      "manis": 2,
+      "asam": 4,
+      "pedas": 4,
+      "pahit": 5
+    },
+    "tags": "gurih, gurih, nagih, kopi",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Ovaltine",
+      "gambar_minuman": "/static/Menukpk/Ovaltine.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Pempek Campur.png"
+  },
+  {
+    "id_makanan": "K042",
+    "nama_makanan": "Pempek Lenggang",
+    "kategori": "Snack",
+    "harga": 18000,
+    "deskripsi_edukasi": "Gurihnya ikan olahan pempek dilapis dadar telur empuk. Paduan sempurna nan gurih yang cocok disiram dengan kuah cuko pedas.",
+    "profil_rasa": {
+      "manis": 5,
+      "asam": 6,
+      "pedas": 6,
+      "pahit": 6
+    },
+    "tags": "gurih, gurih, nagih, kopi",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Nutrisari Susu",
+      "gambar_minuman": "/static/Menukpk/Nutrisari Susu.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Pempek Lenggang.png"
+  },
+  {
+    "id_makanan": "K043",
+    "nama_makanan": "Cireng",
+    "kategori": "Snack",
+    "harga": 12000,
+    "deskripsi_edukasi": "Camilan gurih yang renyah (krispi) di luar dan kenyal di dalam, digoreng panas-panas wajib jadi teman bersantai.",
+    "profil_rasa": {
+      "manis": 2,
+      "asam": 4,
+      "pedas": 5,
+      "pahit": 2
+    },
+    "tags": "gurih, gurih, nagih, kopi",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Kopi Cadbury",
+      "gambar_minuman": "/static/Menukpk/Kopi Cadbury.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Cireng.png"
+  },
+  {
+    "id_makanan": "K044",
+    "nama_makanan": "French Fries",
+    "kategori": "Snack",
+    "harga": 15000,
+    "deskripsi_edukasi": "Kentang goreng klasik dengan sensasi rasa asin dan sangat gurih. Camilan andalan untuk nongkrong yang asik.",
+    "profil_rasa": {
+      "manis": 2,
+      "asam": 4,
+      "pedas": 4,
+      "pahit": 2
+    },
+    "tags": "gurih, gurih, nagih, kopi",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Cincau Susu",
+      "gambar_minuman": "/static/Menukpk/Cincau Susu.png"
+    },
+    "gambar_makanan": "/static/Menukpk/French Fries.png"
+  },
+  {
+    "id_makanan": "K045",
+    "nama_makanan": "Chicken Nugget",
+    "kategori": "Snack",
+    "harga": 15000,
+    "deskripsi_edukasi": "Nugget ayam yang empuk dengan selimut luar renyah (golden brown). Sangat gurih, cocok dikonsumsi bersama minuman manis.",
+    "profil_rasa": {
+      "manis": 2,
+      "asam": 4,
+      "pedas": 4,
+      "pahit": 2
+    },
+    "tags": "gurih, gurih, nagih, kopi",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Extrajoss Susu",
+      "gambar_minuman": "/static/Menukpk/Extrajoss Susu.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Chicken Nugget.png"
+  },
+  {
+    "id_makanan": "K046",
+    "nama_makanan": "Pangsit Goreng",
+    "kategori": "Snack",
+    "harga": 15000,
+    "deskripsi_edukasi": "Pangsit goreng bungkusan daging cincang dengan baluran kulit super krispi. Kriuk dan isi gurihnya tiada tanding.",
+    "profil_rasa": {
+      "manis": 4,
+      "asam": 6,
+      "pedas": 5,
+      "pahit": 2
+    },
+    "tags": "gurih, gurih, nagih, kopi",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Kukubima Susu",
+      "gambar_minuman": "/static/Menukpk/Kukubima Susu.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Pangsit Goreng.png"
+  },
+  {
+    "id_makanan": "K047",
+    "nama_makanan": "Pisang Goreng",
+    "kategori": "Snack",
+    "harga": 12000,
+    "deskripsi_edukasi": "Camilan manis legit berbalut adonan tepung gurih renyah (krispi). Manis madu alami pisang ini sangat cocok disandingkan bersama kopi pahit.",
+    "profil_rasa": {
+      "manis": 4,
+      "asam": 6,
+      "pedas": 7,
+      "pahit": 2
+    },
+    "tags": "gurih, gurih, nagih, kopi",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Kopi ES",
+      "gambar_minuman": "/static/Menukpk/Kopi ES.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Pisang Goreng.png"
+  },
+  {
+    "id_makanan": "K048",
+    "nama_makanan": "Ayam Saus Mentega",
+    "kategori": "Nasi Ayam",
+    "harga": 22000,
+    "deskripsi_edukasi": "Nasi ayam hangat disiram saus racikan mentega yang creamy dan sedap! Rasanya dominan manis berbaur dengan sangat gurih.",
+    "profil_rasa": {
+      "manis": 7,
+      "asam": 2,
+      "pedas": 2,
+      "pahit": 2
+    },
+    "tags": "creamy, gurih, creamy, gurih, nagih, nasi ayam",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Teh Tarik",
+      "gambar_minuman": "/static/Menukpk/Teh Tarik.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Ayam Saus Mentega.png"
+  },
+  {
+    "id_makanan": "K049",
+    "nama_makanan": "Ayam Balado",
+    "kategori": "Nasi Ayam",
+    "harga": 22000,
+    "deskripsi_edukasi": "Kelezatan ayam suwir/potong dilumuri bumbu merah balado. Sensasi pedas menantang dan ekstra gurih menambah kenikmatan bersantap.",
+    "profil_rasa": {
+      "manis": 2,
+      "asam": 2,
+      "pedas": 9,
+      "pahit": 8
+    },
+    "tags": "pedas, gurih, pedas, gurih, nagih, nasi ayam",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Susu Putih",
+      "gambar_minuman": "/static/Menukpk/Susu Putih.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Ayam Balado.png"
+  },
+  {
+    "id_makanan": "K050",
+    "nama_makanan": "Ayam Saus Padang",
+    "kategori": "Nasi Ayam",
+    "harga": 22000,
+    "deskripsi_edukasi": "Olahan daging ayam empuk dengan saus Padang yang super wangi. Sangat pedas, berbumbu tebal (rempah), dan super gurih.",
+    "profil_rasa": {
+      "manis": 6,
+      "asam": 6,
+      "pedas": 8,
+      "pahit": 7
+    },
+    "tags": "pedas, gurih, pedas, gurih, nagih, nasi ayam",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Es Cincau",
+      "gambar_minuman": "/static/Menukpk/Es Cincau.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Ayam Saus Padang.png"
+  },
+  {
+    "id_makanan": "K051",
+    "nama_makanan": "Ayam Rica Rica",
+    "kategori": "Nasi Ayam",
+    "harga": 22000,
+    "deskripsi_edukasi": "Hati-hati! Nasi ayam rica-rica pedas mampus ini punya aroma khas kemangi dan rempah gurih, bikin ngiler saat mencium aromanya.",
+    "profil_rasa": {
+      "manis": 4,
+      "asam": 4,
+      "pedas": 8,
+      "pahit": 7
+    },
+    "tags": "pedas, gurih, pedas, gurih, nagih, nasi ayam",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Kopi Susu",
+      "gambar_minuman": "/static/Menukpk/Kopi susu.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Ayam Rica Rica.png"
+  },
+  {
+    "id_makanan": "K052",
+    "nama_makanan": "Ayam Lada Hitam",
+    "kategori": "Nasi Ayam",
+    "harga": 22000,
+    "deskripsi_edukasi": "Tumisan daging ayam bumbu blackpepper (lada hitam). Cita rasanya menghangatkan, berbalut dengan rempah dan aroma daging gurih tiada dua.",
+    "profil_rasa": {
+      "manis": 2,
+      "asam": 6,
+      "pedas": 8,
+      "pahit": 2
+    },
+    "tags": "rempah kuat, gurih, gurih, nagih, nasi ayam",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Lemontea",
+      "gambar_minuman": "/static/Menukpk/Lemontea.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Ayam Lada Hitam.png"
+  },
+  {
+    "id_makanan": "K053",
+    "nama_makanan": "Ayam Salted Egg",
+    "kategori": "Nasi Ayam",
+    "harga": 22000,
+    "deskripsi_edukasi": "Ayam tepung renyah berbalur saus lumer mentega kuning telur asin. Super lezat, sangat creamy, dan asinya gurih banget bikin kalap makan.",
+    "profil_rasa": {
+      "manis": 5,
+      "asam": 2,
+      "pedas": 1,
+      "pahit": 2
+    },
+    "tags": "creamy, gurih, creamy, gurih, nagih, nasi ayam",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Susu Jahe",
+      "gambar_minuman": "/static/Menukpk/Susu Jahe.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Ayam Salted Egg.png"
+  },
+  {
+    "id_makanan": "K054",
+    "nama_makanan": "Nasi Goreng",
+    "kategori": "Nasi",
+    "harga": 18000,
+    "deskripsi_edukasi": "Menu abadi saat lapar! Nasi goreng KPK dengan sentuhan bumbu otentik menghasilkan rasa rempah gurih kuat yang memanjakan pencernaan.",
+    "profil_rasa": {
+      "manis": 4,
+      "asam": 2,
+      "pedas": 5,
+      "pahit": 2
+    },
+    "tags": "gurih, gurih, nagih, nasi",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Thaitea",
+      "gambar_minuman": "/static/Menukpk/Thaitea.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Nasi Goreng.png"
+  },
+  {
+    "id_makanan": "K055",
+    "nama_makanan": "Minas",
+    "kategori": "Nasi",
+    "harga": 20000,
+    "deskripsi_edukasi": "Porsi mengenyangkan! Gabungan Mi dan Nasi goreng berbumbu pekat, menghasilkan dobel gurih rempah dan sangat bikin ketagihan.",
+    "profil_rasa": {
+      "manis": 4,
+      "asam": 2,
+      "pedas": 5,
+      "pahit": 2
+    },
+    "tags": "gurih, gurih, nagih, nasi",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Milo",
+      "gambar_minuman": "/static/Menukpk/Milo.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Minas.png"
+  },
+  {
+    "id_makanan": "K056",
+    "nama_makanan": "Nasi Telur Kecap",
+    "kategori": "Nasi",
+    "harga": 13000,
+    "deskripsi_edukasi": "Kesederhanaan yang mewah. Telur disiram kaldu kecap karamel yang sangat manis, melahirkan kombinasi legit dan gurih khas.",
+    "profil_rasa": {
+      "manis": 8,
+      "asam": 6,
+      "pedas": 2,
+      "pahit": 2
+    },
+    "tags": "manis, gurih, manis, gurih, nagih, nasi",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Coklat Beng Beng",
+      "gambar_minuman": "/static/Menukpk/Coklat Beng Beng.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Nasi Telur Kecap.png"
+  },
+  {
+    "id_makanan": "K057",
+    "nama_makanan": "Nasi Telur Dadar",
+    "kategori": "Nasi",
+    "harga": 13000,
+    "deskripsi_edukasi": "Nasi hangat dan telur dadar berbumbu padat mengembang! Makanan kenyang praktis, sangat creamy kuning telur dan dominan gurih nikmat.",
+    "profil_rasa": {
+      "manis": 2,
+      "asam": 2,
+      "pedas": 3,
+      "pahit": 2
+    },
+    "tags": "gurih, gurih, nagih, nasi",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Kopmil",
+      "gambar_minuman": "/static/Menukpk/Kopmil.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Nasi Telur Dadar.png"
+  },
+  {
+    "id_makanan": "K058",
+    "nama_makanan": "Nasi Telur Salted Egg",
+    "kategori": "Nasi",
+    "harga": 15000,
+    "deskripsi_edukasi": "Telur goreng dibalur sempurna di atas saus lelehan Salted Egg. Rasanya sangat gurih premium dan begitu creamy memecah di lidah.",
+    "profil_rasa": {
+      "manis": 6,
+      "asam": 2,
+      "pedas": 2,
+      "pahit": 2
+    },
+    "tags": "creamy, gurih, creamy, gurih, nagih, nasi",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Serunai",
+      "gambar_minuman": "/static/Menukpk/Serunai.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Nasi Telur Salted Egg.png"
+  },
+  {
+    "id_makanan": "K059",
+    "nama_makanan": "Indomie Goreng",
+    "kategori": "Indomie",
+    "harga": 15000,
+    "deskripsi_edukasi": "Selalu jadi idola! Olahan Indomie Goreng dengan tambahan rempah sayur yang bikin teksturnya pas dan rasa gurih aslinya luar biasa.",
+    "profil_rasa": {
+      "manis": 4,
+      "asam": 3,
+      "pedas": 3,
+      "pahit": 2
+    },
+    "tags": "gurih, gurih, nagih, indomie",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Cadbury",
+      "gambar_minuman": "/static/Menukpk/Cadbury.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Indomie Goreng.png"
+  },
+  {
+    "id_makanan": "K060",
+    "nama_makanan": "Indomie Goreng Aceh",
+    "kategori": "Indomie",
+    "harga": 15000,
+    "deskripsi_edukasi": "Indomie disulap dengan bumbu Aceh kaya rempah. Cita rasanya tebal akan bawang dan cabe, sehingga pedas berpadu gurih mantap menyengat.",
+    "profil_rasa": {
+      "manis": 6,
+      "asam": 4,
+      "pedas": 8,
+      "pahit": 2
+    },
+    "tags": "pedas, rempah kuat, gurih, pedas, gurih, nagih, indomie",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Kopi Susu",
+      "gambar_minuman": "/static/Menukpk/Kopi susu.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Indomie Goreng Aceh.png"
+  },
+  {
+    "id_makanan": "K061",
+    "nama_makanan": "Indomie Goreng Rendang",
+    "kategori": "Indomie",
+    "harga": 15000,
+    "deskripsi_edukasi": "Hadirkan sensasi masakan Minang di atas sepiring mie! Rempahnya sangat kuat dan gurih seperti rendang asli Padang.",
+    "profil_rasa": {
+      "manis": 4,
+      "asam": 6,
+      "pedas": 8,
+      "pahit": 2
+    },
+    "tags": "rempah kuat, gurih, gurih, nagih, indomie",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Matcha",
+      "gambar_minuman": "/static/Menukpk/Matcha.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Indomie Goreng Rendang.png"
+  },
+  {
+    "id_makanan": "K062",
+    "nama_makanan": "Indomie Rebus",
+    "kategori": "Indomie",
+    "harga": 15000,
+    "deskripsi_edukasi": "Indomie kaldu ayam disantap selagi panas. Kuahnya gurih kebangetan, paling cocok buat menghangatkan perut dan teman ngobrol.",
+    "profil_rasa": {
+      "manis": 6,
+      "asam": 5,
+      "pedas": 5,
+      "pahit": 2
+    },
+    "tags": "gurih, gurih, nagih, indomie",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Nutrisari",
+      "gambar_minuman": "/static/Menukpk/Nutrisari.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Indomie Rebus.png"
+  },
+  {
+    "id_makanan": "K063",
+    "nama_makanan": "Indomie Kuah Spicy Cream",
+    "kategori": "Indomie",
+    "harga": 16000,
+    "deskripsi_edukasi": "Wah ini menu wajib pecinta pedas ekstrem! Kuahnya direbus dengan tambahan krim yang sangat creamy, pedas lumer dan sangat gurih.",
+    "profil_rasa": {
+      "manis": 2,
+      "asam": 8,
+      "pedas": 10,
+      "pahit": 5
+    },
+    "tags": "pedas, creamy, gurih, pedas, creamy, gurih, nagih, indomie",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Teh Susu",
+      "gambar_minuman": "/static/Menukpk/Teh Susu.png"
+    },
+    "gambar_makanan": "/static/Menukpk/Indomie Kuah Spicy Cream.png"
+  },
+  {
+    "id_makanan": "K064",
+    "nama_makanan": "Mi Nyemek",
+    "kategori": "Indomie",
+    "harga": 15000,
+    "deskripsi_edukasi": "Disajikan tidak kering tapi juga tidak basah (nyemek), bumbu mie termarinasi sempurna menciptakan rasa super gurih pedas nendang.",
+    "profil_rasa": {
+      "manis": 2,
+      "asam": 4,
+      "pedas": 8,
+      "pahit": 5
+    },
+    "tags": "pedas, gurih, pedas, gurih, nagih, indomie",
+    "rekomendasi_minuman": {
+      "nama_minuman": "Ovaltine",
+      "gambar_minuman": "/static/Menukpk/Ovaltine.png"
+    },
+    "gambar_makanan": "static/Menukpk/Mi Nyemek.png"
+  }
+]

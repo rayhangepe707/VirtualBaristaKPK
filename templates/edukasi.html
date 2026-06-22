@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruang Edukasi - Kopi KPK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { 
+            --bg-cream: #f8f5ee; 
+            --dark-green: #1a3622; 
+            --light-green: #2c4a34; 
+            --chat-bot-bg: #ffffff; 
+            --text-dark: #2d3748; 
+            --border-color: #e2e8f0;
+            --accent-red: #e53e3e;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        /* Menggunakan Font Poppins */
+        body { 
+            background-color: var(--bg-cream); 
+            color: var(--text-dark); 
+            display: flex; 
+            height: 100vh; 
+            overflow: hidden; 
+            font-family: 'Poppins', sans-serif; 
+        }
+
+        /* Sidebar Styling (SAMA PERSIS DENGAN INDEX) */
+        .sidebar { width: 260px; background-color: var(--dark-green); color: white; display: flex; flex-direction: column; padding: 25px 0; box-shadow: var(--shadow-lg); z-index: 10; flex-shrink: 0; }
+        .brand { text-align: center; padding-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 25px; display: flex; flex-direction: column; align-items: center; }
+        .brand-logo-container { width: 110px; height: 110px; border-radius: 50%; overflow: hidden; margin-bottom: 10px; box-shadow: var(--shadow-md); display: flex; justify-content: center; align-items: center; }
+        .brand-logo { width: 105%; height: 105%; object-fit: cover; }
+        .brand h3 { font-weight: 600; letter-spacing: 1px; margin-top: 5px; font-size: 1.1rem; }
+        .nav-item { padding: 16px 30px; color: rgba(255,255,255,0.6); text-decoration: none; display: flex; align-items: center; gap: 15px; font-weight: 500; transition: all 0.3s ease; }
+        .nav-item:hover, .nav-item.active { color: white; background-color: var(--light-green); border-left: 4px solid #fff; }
+        
+        /* --- MAIN CONTENT --- */
+        .main-wrapper { flex: 1; display: flex; padding: 30px; gap: 30px; overflow-y: auto; background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png'); }
+        
+        /* Chat Demo Section (Kiri) - Mengadopsi style chat dari index.html */
+        .chat-section { flex: 1; min-width: 320px; background: transparent; display: flex; flex-direction: column; box-shadow: var(--shadow-md); border-radius: 16px; overflow: hidden; border: 1px solid var(--border-color); background-color: rgba(255, 255, 255, 0.4); }
+        .chat-header { background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(5px); padding: 20px; text-align: center; font-weight: 600; font-size: 1.1rem; border-bottom: 1px solid var(--border-color); color: var(--dark-green); box-shadow: var(--shadow-sm); z-index: 5; }
+        .chat-box { flex: 1; padding: 25px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; background: rgba(248, 245, 238, 0.3); }
+        
+        /* Styling Bubble Chat Identik Index */
+        .message { max-width: 85%; display: flex; gap: 10px; position: relative; margin-bottom: 20px; }
+        .message.bot { align-self: flex-start; }
+        .message.user { align-self: flex-end; flex-direction: row-reverse; }
+        
+        .bot-avatar { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--light-green); box-shadow: var(--shadow-sm); }
+        .message-content { padding: 16px 20px; line-height: 1.6; font-size: 0.95rem; box-shadow: var(--shadow-md); border: 1px solid rgba(0,0,0,0.02); }
+        .message.bot .message-content { background-color: var(--chat-bot-bg); color: var(--text-dark); border-radius: 0px 20px 20px 20px; }
+        .message.user .message-content { background-color: var(--dark-green); color: white; border-radius: 20px 0px 20px 20px; }
+        
+        /* Input Area Identik Index */
+        .input-area { padding: 20px; background: white; border-top: 1px solid var(--border-color); }
+        .input-wrapper { display: flex; width: 100%; background: white; padding: 6px; border-radius: 30px; border: 1px solid var(--border-color); }
+        .input-wrapper input { flex: 1; padding: 10px 15px; border: none; outline: none; font-size: 0.95rem; background: transparent; font-family: 'Poppins', sans-serif; }
+        .input-wrapper button { padding: 0 20px; background-color: var(--dark-green); color: white; border: none; border-radius: 25px; cursor: pointer; transition: all 0.2s; }
+        .input-wrapper button:hover { background-color: var(--light-green); }
+
+        /* Panduan Section (Kanan) */
+        .panduan-section { flex: 1.5; }
+        .panduan-header { color: var(--dark-green); margin-top: 0; margin-bottom: 10px; font-weight: 600; font-size: 1.6rem; }
+        .panduan-desc { color: #718096; margin-bottom: 25px; line-height: 1.6; font-size: 0.95rem; }
+        .panduan-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        
+        /* Kartu Panduan Modern */
+        .panduan-card { background: white; border-radius: 16px; padding: 25px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); border-top: 4px solid var(--dark-green); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .panduan-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-top-color: var(--light-green); }
+        .step-number { background-color: var(--bg-cream); color: var(--dark-green); border: 1px solid var(--border-color); width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; font-size: 0.9rem; margin-bottom: 15px; }
+        .panduan-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; color: var(--dark-green); }
+        .panduan-text { font-size: 0.9rem; color: #4a5568; line-height: 1.6; margin-bottom: 15px; }
+        
+        /* Contoh Prompt Style Code */
+        .prompt-example { background-color: var(--bg-cream); padding: 12px; border-radius: 10px; font-size: 0.85rem; color: var(--accent-red); font-family: monospace; border: 1px dashed #cbd5e0; font-weight: 500; }
+
+        /* Responsif untuk Mobile */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                height: auto;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+            .sidebar {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 10px 0;
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                box-shadow: var(--shadow-md);
+            }
+            .brand {
+                display: none;
+            }
+            .nav-item {
+                padding: 8px 10px;
+                font-size: 0.75rem;
+                flex-direction: column;
+                gap: 5px;
+                border-left: none !important;
+                border-bottom: 3px solid transparent;
+                border-radius: 0;
+                flex: 1;
+                justify-content: center;
+            }
+            .nav-item:hover, .nav-item.active {
+                border-left: none !important;
+                border-bottom: 3px solid #fff;
+                background-color: var(--light-green);
+            }
+            .main-wrapper {
+                flex-direction: column;
+                padding: 15px;
+                flex: none;
+            }
+            .chat-section {
+                width: 100%;
+                min-width: unset;
+                height: 60vh;
+                flex: none;
+            }
+            .panduan-section {
+                width: 100%;
+                flex: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-logo-container">
+                <img src="/static/logo_asli.jpg" alt="Warung Kopi Pulau Karam" class="brand-logo">
+            </div>
+            <h3>Kopi KPK</h3>
+        </div>
+        <a href="/" class="nav-item"><i class="fa-solid fa-robot"></i> Virtual Barista</a>
+        <a href="/katalog" class="nav-item"><i class="fa-solid fa-book-open"></i> Katalog Menu</a>
+        <a href="/edukasi" class="nav-item active"><i class="fa-solid fa-graduation-cap"></i> Ruang Edukasi</a>
+        <a href="/rating" class="nav-item"><i class="fa-solid fa-star"></i> Penilaian</a>
+    </aside>
+
+    <div class="main-wrapper">
+        
+        <div class="chat-section">
+            <div class="chat-header">
+                <i class="fa-solid fa-sparkles" style="color: var(--accent-red); margin-right: 8px;"></i> Coba Sapa Barista
+            </div>
+            <div class="chat-box">
+                <div class="message bot">
+                    <img src="/static/avatar_neutral.png" class="bot-avatar">
+                    <div class="message-content">Halo! Saya Barista Virtual Warung Kopi KPK. Ada yang bisa saya bantu jelaskan tentang kopi hari ini?</div>
+                </div>
+                <div class="message user">
+                    <div class="message-content">Apa bedanya kopi Arabika dan Robusta?</div>
+                </div>
+                <div class="message bot">
+                    <img src="/static/avatar_happy.png" class="bot-avatar">
+                    <div class="message-content">Pertanyaan bagus! <b>Arabika</b> biasanya lebih asam (fruity), aromatik, dan kafeinnya rendah. Sedangkan <b>Robusta</b> rasanya lebih pahit, pekat, dan kafeinnya 2x lipat lebih tinggi.</div>
+                </div>
+            </div>
+            <div class="input-area">
+                <div class="input-wrapper">
+                    <input type="text" placeholder="Ketik pertanyaanmu..." disabled>
+                    <button type="button"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="panduan-section">
+            <h2 class="panduan-header">Cara Memakai Barista Virtual</h2>
+            <p class="panduan-desc">Chatbot ini didukung oleh sistem NLP (Natural Language Processing). Kamu bisa bertanya layaknya mengobrol dengan barista sungguhan di warung. Coba format pertanyaan di bawah ini pada halaman <b>Virtual Barista</b>.</p>
+            
+            <div class="panduan-grid">
+                <div class="panduan-card">
+                    <div class="step-number">1</div>
+                    <div class="panduan-title">Tanya Rekomendasi Menu</div>
+                    <div class="panduan-text">Bingung mau pesan apa? Beritahu sistem rasa kopi yang kamu suka (manis, pahit, atau creamy), dan barista akan memberikan saran.</div>
+                    <div class="prompt-example">"Kopi yang rasanya manis dan creamy apa ya?"</div>
+                </div>
+                
+                <div class="panduan-card">
+                    <div class="step-number">2</div>
+                    <div class="panduan-title">Edukasi & Istilah Kopi</div>
+                    <div class="panduan-text">Tanyakan perbedaan jenis biji kopi, metode seduh, atau istilah-istilah di menu yang belum kamu pahami.</div>
+                    <div class="prompt-example">"Apa bedanya V60 dan Americano?"</div>
+                </div>
+                
+                <div class="panduan-card">
+                    <div class="step-number">3</div>
+                    <div class="panduan-title">Gunakan Bahasa Sehari-hari</div>
+                    <div class="panduan-text">Sistem ini mengerti bahasa kasual. Kamu tidak perlu mengetik dengan bahasa kaku atau formal.</div>
+                    <div class="prompt-example">"Bang, kalau buat lambung aman mending pesen apa?"</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

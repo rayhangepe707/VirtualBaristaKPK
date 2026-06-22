@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Barista - Warung Kopi KPK</title>
+    <!-- Tambahan Font Modern: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { 
+            --bg-cream: #f8f5ee; 
+            --dark-green: #1a3622; 
+            --light-green: #2c4a34; 
+            --chat-bot-bg: #ffffff; 
+            --text-dark: #2d3748; 
+            --border-color: #e2e8f0;
+            --accent-red: #e53e3e;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        /* Font diaplikasikan ke seluruh halaman */
+        body { 
+            background-color: var(--bg-cream); 
+            color: var(--text-dark); 
+            display: flex; 
+            height: 100vh; 
+            overflow: hidden; 
+            font-family: 'Poppins', sans-serif; 
+        }
+        
+        /* Sidebar Styling (Diperhalus) */
+        .sidebar { width: 260px; background-color: var(--dark-green); color: white; display: flex; flex-direction: column; padding: 25px 0; box-shadow: var(--shadow-lg); z-index: 10; }
+        .brand { text-align: center; padding-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 25px; display: flex; flex-direction: column; align-items: center; }
+        .brand-logo-container { width: 110px; height: 110px; border-radius: 50%; overflow: hidden; margin-bottom: 10px; box-shadow: var(--shadow-md); display: flex; justify-content: center; align-items: center; }
+        .brand-logo { width: 105%; height: 105%; object-fit: cover; }
+        .brand h3 { font-weight: 600; letter-spacing: 1px; margin-top: 5px; font-size: 1.1rem; }
+        .nav-item { padding: 16px 30px; color: rgba(255,255,255,0.6); text-decoration: none; display: flex; align-items: center; gap: 15px; font-weight: 500; transition: all 0.3s ease; }
+        .nav-item:hover, .nav-item.active { color: white; background-color: var(--light-green); border-left: 4px solid #fff; }
+
+        /* Main Chat Area */
+        .chat-container { flex: 1; display: flex; flex-direction: column; background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png'); position: relative; }
+        .chat-header { background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(5px); padding: 20px; text-align: center; font-weight: 600; font-size: 1.1rem; border-bottom: 1px solid var(--border-color); color: var(--dark-green); box-shadow: var(--shadow-sm); z-index: 5; }
+        .chat-box { flex: 1; padding: 30px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; scroll-behavior: smooth; }
+        
+        /* Gelembung Chat Modern */
+        .message { max-width: 75%; display: flex; gap: 10px; position: relative; }
+        
+        .message.bot { 
+            align-self: flex-start; 
+        }
+        
+        .message.user { 
+            align-self: flex-end; 
+            flex-direction: row-reverse;
+        }
+
+        .bot-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--light-green);
+            box-shadow: var(--shadow-md);
+        }
+
+        .message-content {
+            padding: 16px 20px; 
+            line-height: 1.6; 
+            font-size: 0.95rem; 
+            box-shadow: var(--shadow-md); 
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+        
+        .message.bot .message-content {
+            background-color: var(--chat-bot-bg); 
+            color: var(--text-dark); 
+            border-radius: 0px 20px 20px 20px; /* Ujung kiri atas lancip */
+        }
+        
+        .message.user .message-content {
+            background-color: var(--dark-green); 
+            color: white; 
+            border-radius: 20px 0px 20px 20px; /* Ujung kanan atas lancip */
+        }
+        
+        /* Kartu Rekomendasi Menu */
+        .recommendation-container { display: flex; gap: 16px; margin-top: 18px; overflow-x: auto; padding: 5px 5px 15px 5px; scrollbar-width: thin; }
+        .rec-card { 
+            background: white; 
+            border-radius: 16px; 
+            padding: 12px; 
+            min-width: 150px; 
+            text-align: center; 
+            box-shadow: var(--shadow-sm); 
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        /* Efek Hover (Kartu Terangkat) */
+        .rec-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--light-green);
+        }
+        .rec-card img { width: 100%; height: 120px; object-fit: cover; border-radius: 10px; margin-bottom: 12px; }
+        .rec-card p { font-weight: 600; font-size: 0.9rem; color: var(--dark-green); }
+
+        /* Input Area (Melayang) */
+        .input-area { 
+            padding: 20px 30px; 
+            background: transparent; 
+            display: flex; 
+            gap: 15px; 
+            align-items: center; 
+        }
+        .input-wrapper {
+            display: flex;
+            width: 100%;
+            background: white;
+            padding: 8px;
+            border-radius: 30px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: box-shadow 0.3s ease;
+        }
+        .input-wrapper:focus-within {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--light-green);
+        }
+        .input-wrapper input { flex: 1; padding: 12px 20px; border: none; border-radius: 25px; outline: none; font-size: 1rem; background: transparent; font-family: 'Poppins', sans-serif; }
+        .input-wrapper button { 
+            padding: 0 25px; 
+            background-color: var(--dark-green); 
+            color: white; 
+            border: none; 
+            border-radius: 25px; 
+            cursor: pointer; 
+            font-size: 1.1rem;
+            transition: all 0.2s; 
+        }
+        .input-wrapper button:hover { background-color: var(--light-green); transform: scale(1.05); }
+
+        /* Right Dashboard (Profil Rasa) */
+        .dashboard-container { 
+            width: 340px; 
+            background-color: white; 
+            border-left: 1px solid var(--border-color); 
+            padding: 30px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center;
+            box-shadow: -4px 0 15px rgba(0,0,0,0.03);
+            z-index: 10;
+        }
+        .dashboard-container h3 { color: var(--dark-green); margin-bottom: 25px; text-align: center; font-weight: 600; font-size: 1.2rem; }
+        
+        .radar-box { 
+            background: var(--bg-cream); 
+            padding: 20px; 
+            border-radius: 20px; 
+            width: 100%; 
+            height: 260px;
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            position: relative;
+        }
+        .flavor-label {
+            position: absolute;
+            font-weight: 600;
+            color: #a0aec0;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+        .flavor-label.active {
+            color: var(--accent-red);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .flavor-top { top: 15px; }
+        .flavor-bottom { bottom: 15px; }
+        .flavor-left { left: 15px; }
+        .flavor-right { right: 15px; }
+        
+        #baristaChar {
+            width: 130px;
+            height: 130px;
+            object-fit: contain;
+            z-index: 2;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+        }
+        
+        .pointer-wrapper {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            opacity: 0;
+            z-index: 3;
+        }
+        #pointer-icon {
+            font-size: 2.2rem;
+            color: var(--accent-red);
+            transform: translateY(-90px); 
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+            animation: pointBounce 1s infinite alternate;
+        }
+        @keyframes pointBounce {
+            from { transform: translateY(-85px); }
+            to { transform: translateY(-95px); }
+        }
+
+        .coffee-name-display { font-weight: 700; color: var(--accent-red); margin-top: 20px; font-size: 1.3rem; text-align: center; letter-spacing: 0.5px; }
+
+        /* Responsif untuk Mobile */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                height: auto;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+            .sidebar {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 10px 0;
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                box-shadow: var(--shadow-md);
+            }
+            .brand {
+                display: none;
+            }
+            .nav-item {
+                padding: 8px 10px;
+                font-size: 0.75rem;
+                flex-direction: column;
+                gap: 5px;
+                border-left: none !important;
+                border-bottom: 3px solid transparent;
+                border-radius: 0;
+                flex: 1;
+                justify-content: center;
+            }
+            .nav-item:hover, .nav-item.active {
+                border-left: none !important;
+                border-bottom: 3px solid #fff;
+                background-color: var(--light-green);
+            }
+            .chat-container {
+                height: 75vh;
+                width: 100%;
+                flex: none;
+            }
+            .dashboard-container {
+                width: 100%;
+                border-left: none;
+                border-top: 1px solid var(--border-color);
+                padding: 20px;
+                flex: none;
+            }
+            .message {
+                max-width: 90%;
+            }
+            .bot-avatar {
+                width: 50px;
+                height: 50px;
+            }
+            .message-content {
+                padding: 12px 16px;
+                font-size: 0.9rem;
+            }
+            .input-area {
+                padding: 15px;
+            }
+            .radar-box {
+                height: 220px;
+            }
+            #baristaChar {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-logo-container">
+                <img src="/static/logo_asli.jpg" alt="Warung Kopi Pulau Karam" class="brand-logo">
+            </div>
+            <h3>Kopi KPK</h3>
+        </div>
+        <a href="/" class="nav-item active"><i class="fa-solid fa-robot"></i> Virtual Barista</a>
+        <a href="/katalog" class="nav-item"><i class="fa-solid fa-book-open"></i> Katalog Menu</a>
+        <a href="/edukasi" class="nav-item"><i class="fa-solid fa-graduation-cap"></i> Ruang Edukasi</a>
+        <a href="/rating" class="nav-item"><i class="fa-solid fa-star"></i> Penilaian</a>
+    </aside>
+
+    <!-- Chat Area -->
+    <div class="chat-container">
+        <div class="chat-header">
+            <i class="fa-solid fa-sparkles" style="color: #d9534f; margin-right: 8px;"></i> Virtual Barista AI
+        </div>
+        <div class="chat-box" id="chatBox">
+            <div class="message bot">
+                <img src="/static/avatar_neutral.png" alt="Barista AI" class="bot-avatar">
+                <div class="message-content">Halo! Saya Barista AI dari Warung Kopi KPK. Mau pesan kopi yang strong, seger-seger, atau lagi butuh cemilan? Kasih tau aja mood kamu!</div>
+            </div>
+        </div>
+        <div class="input-area">
+            <div class="input-wrapper">
+                <input type="text" id="userInput" placeholder="Ketik keluh kesah atau pesananmu di sini..." onkeypress="if(event.key === 'Enter') sendMessage()">
+                <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Profil Rasa -->
+    <div class="dashboard-container">
+        <h3><i class="fa-solid fa-star" style="margin-right: 8px; color:#f6ad55;"></i> Profil Rasa Edukasi</h3>
+        <div class="radar-box">
+            <img src="/static/barista_3d_lucu.png?v=2" alt="Barista Lucu" id="baristaChar">
+            
+            <div id="flv-Manis" class="flavor-label flavor-top">Manis</div>
+            <div id="flv-Pahit" class="flavor-label flavor-bottom">Pahit</div>
+            <div id="flv-Pedas" class="flavor-label flavor-left">Pedas</div>
+            <div id="flv-Asam" class="flavor-label flavor-right">Asam</div>
+            
+            <div id="pointerWrapper" class="pointer-wrapper">
+                <i class="fa-solid fa-hand-point-up" id="pointer-icon"></i>
+            </div>
+        </div>
+        <div class="coffee-name-display" id="coffeeName">Pilih Menu</div>
+    </div>
+
+    <!-- Script Logika Chat -->
+    <script>
+        const flavors = ['Manis', 'Asam', 'Pahit', 'Pedas'];
+        
+        function updateFlavorProfile(radarData) {
+            // Reset state
+            flavors.forEach(f => {
+                document.getElementById('flv-' + f).classList.remove('active');
+            });
+            
+            // Urutan radarData: [Manis, Asam, Pahit, Pedas]
+            let maxVal = -1;
+            let maxIdx = -1;
+            radarData.forEach((val, idx) => {
+                if(val > maxVal) { maxVal = val; maxIdx = idx; }
+            });
+            
+            const pointerWrapper = document.getElementById('pointerWrapper');
+            const baristaChar = document.getElementById('baristaChar');
+            
+            if (maxVal > 0) {
+                const dominantFlavor = flavors[maxIdx];
+                document.getElementById('flv-' + dominantFlavor).classList.add('active');
+                
+                pointerWrapper.style.opacity = '1';
+                
+                let deg = 0;
+                let imgSrc = '/static/barista_3d_lucu.png';
+                if(dominantFlavor === 'Manis') { deg = 0; imgSrc = '/static/barista_up.png'; }
+                else if(dominantFlavor === 'Asam') { deg = 90; imgSrc = '/static/barista_right.png'; }
+                else if(dominantFlavor === 'Pahit') { deg = 180; imgSrc = '/static/barista_down.png'; }
+                else if(dominantFlavor === 'Pedas') { deg = 270; imgSrc = '/static/barista_left.png'; }
+                
+                pointerWrapper.style.transform = `rotate(${deg}deg)`;
+                
+                // Ganti gambar barista dengan animasi fade kecil
+                baristaChar.style.opacity = '0';
+                setTimeout(() => {
+                    baristaChar.src = imgSrc;
+                    baristaChar.style.opacity = '1';
+                    baristaChar.style.transform = 'scale(1.1)';
+                    setTimeout(() => { baristaChar.style.transform = 'scale(1)'; }, 300);
+                }, 150);
+
+            } else {
+                pointerWrapper.style.opacity = '0';
+                baristaChar.src = '/static/barista_3d_lucu.png';
+            }
+        }
+
+        const chatBox = document.getElementById('chatBox');
+        const userInput = document.getElementById('userInput');
+
+        function appendMessage(text, sender, botData = null) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `message ${sender}`;
+            
+            let htmlContent = '';
+            
+            if (sender === 'bot') {
+                const emotion = botData && botData.emotion ? botData.emotion : 'neutral';
+                const avatarSrc = `/static/avatar_${emotion}.png`;
+                htmlContent += `<img src="${avatarSrc}" alt="Barista AI" class="bot-avatar">`;
+            }
+            
+            let textAndCards = `<div class="message-content">${text}`;
+            if (botData && botData.includes_cards && botData.cards) {
+                let cardsHtml = '<div class="recommendation-container">';
+                botData.cards.forEach(c => {
+                    cardsHtml += `<div class="rec-card"><img src="${c.img}" alt="${c.name}"><p>${c.name}</p></div>`;
+                });
+                cardsHtml += '</div>';
+                textAndCards += cardsHtml;
+            }
+            textAndCards += `</div>`;
+            
+            msgDiv.innerHTML = htmlContent + textAndCards;
+            
+            chatBox.appendChild(msgDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        async function sendMessage() {
+            const text = userInput.value.trim();
+            if (!text) return;
+            
+            appendMessage(text, 'user');
+            userInput.value = '';
+            
+            try {
+                const response = await fetch('/chat', { 
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'application/json' }, 
+                    body: JSON.stringify({ message: text }) 
+                });
+                const data = await response.json();
+                appendMessage(data.response, 'bot', data);
+                
+                if (data.radar_data) {
+                    document.getElementById('coffeeName').innerText = data.coffee_name;
+                    updateFlavorProfile(data.radar_data);
+                }
+            } catch (e) { 
+                appendMessage("Maaf, koneksi ke otak AI sedang beristirahat sebentar. Tunggu sekitar 1 menit ya!", "bot"); 
+            }
+        }
+    </script>
+</body>
+</html>

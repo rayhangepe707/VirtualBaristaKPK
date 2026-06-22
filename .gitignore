@@ -1,0 +1,9 @@
+# Jangan upload ke GitHub (rahasia & tidak perlu)
+.env
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.xlsx

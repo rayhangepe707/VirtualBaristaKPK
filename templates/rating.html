@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beri Rating - Warung Kopi KPK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { 
+            --bg-cream: #f8f5ee; 
+            --dark-green: #1a3622; 
+            --light-green: #2c4a34; 
+            --text-dark: #2d3748; 
+            --border-color: #e2e8f0;
+            --accent-gold: #f6ad55;
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            background-color: var(--bg-cream); 
+            color: var(--text-dark); 
+            display: flex; 
+            min-height: 100vh; 
+            font-family: 'Poppins', sans-serif; 
+        }
+        
+        /* Sidebar Styling */
+        .sidebar { width: 260px; background-color: var(--dark-green); color: white; display: flex; flex-direction: column; padding: 25px 0; box-shadow: var(--shadow-lg); z-index: 10; position: fixed; height: 100vh; }
+        .brand { text-align: center; padding-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 25px; display: flex; flex-direction: column; align-items: center; }
+        .brand-logo-container { width: 110px; height: 110px; border-radius: 50%; overflow: hidden; margin-bottom: 10px; box-shadow: var(--shadow-md); display: flex; justify-content: center; align-items: center; background: white;}
+        .brand-logo { width: 105%; height: 105%; object-fit: cover; }
+        .brand h3 { font-weight: 600; letter-spacing: 1px; margin-top: 5px; font-size: 1.1rem; }
+        .nav-item { padding: 16px 30px; color: rgba(255,255,255,0.6); text-decoration: none; display: flex; align-items: center; gap: 15px; font-weight: 500; transition: all 0.3s ease; }
+        .nav-item:hover, .nav-item.active { color: white; background-color: var(--light-green); border-left: 4px solid #fff; }
+
+        /* Main Content */
+        .main-content { margin-left: 260px; flex: 1; padding: 40px; display: flex; justify-content: center; align-items: center; background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png'); }
+        
+        .rating-container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .rating-container h2 {
+            color: var(--dark-green);
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        .rating-container p {
+            color: #718096;
+            margin-bottom: 30px;
+        }
+
+        /* Star Rating */
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .star-rating input {
+            display: none;
+        }
+
+        .star-rating label {
+            font-size: 3rem;
+            color: #cbd5e0;
+            cursor: pointer;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .star-rating label:hover,
+        .star-rating label:hover ~ label,
+        .star-rating input:checked ~ label {
+            color: var(--accent-gold);
+        }
+
+        /* Form Textarea */
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .feedback-form textarea {
+            width: 100%;
+            height: 150px;
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            resize: none;
+            transition: border-color 0.3s;
+        }
+
+        .feedback-form textarea:focus {
+            outline: none;
+            border-color: var(--light-green);
+        }
+
+        .submit-btn {
+            background-color: var(--dark-green);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--light-green);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .success-message {
+            background-color: #c6f6d5;
+            color: #2f855a;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: static; flex-direction: row; justify-content: space-around; padding: 10px 0; }
+            .brand { display: none; }
+            .nav-item { padding: 10px; font-size: 0.8rem; flex-direction: column; gap: 5px; flex: 1; text-align: center; border-left: none !important; border-bottom: 3px solid transparent; }
+            .nav-item:hover, .nav-item.active { border-bottom: 3px solid #fff; }
+            .main-content { margin-left: 0; padding: 20px; }
+            .rating-container { padding: 30px 20px; }
+            .star-rating label { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-logo-container">
+                <img src="/static/logo_asli.jpg" alt="Warung Kopi Pulau Karam" class="brand-logo" onerror="this.src='https://via.placeholder.com/110?text=KPK'">
+            </div>
+            <h3>Kopi KPK</h3>
+        </div>
+        <a href="/" class="nav-item"><i class="fa-solid fa-robot"></i> Virtual Barista</a>
+        <a href="/katalog" class="nav-item"><i class="fa-solid fa-book-open"></i> Katalog Menu</a>
+        <a href="/edukasi" class="nav-item"><i class="fa-solid fa-graduation-cap"></i> Ruang Edukasi</a>
+        <a href="/rating" class="nav-item active"><i class="fa-solid fa-star"></i> Penilaian</a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="rating-container">
+            {% if success %}
+            <div class="success-message">
+                <i class="fa-solid fa-check-circle"></i> Terima kasih atas masukan dan penilaian Anda!
+            </div>
+            {% endif %}
+
+            <h2>Bagaimana Pengalaman Anda?</h2>
+            <p>Beri tahu kami bagaimana pelayanan dan rasa kopi di Warung Kopi KPK hari ini.</p>
+
+            <form onsubmit="submitRating(event)" class="feedback-form">
+                <div class="star-rating">
+                    <input type="radio" id="star5" name="rating" value="5" required />
+                    <label for="star5" title="5 Bintang"><i class="fa-solid fa-star"></i></label>
+                    
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label for="star4" title="4 Bintang"><i class="fa-solid fa-star"></i></label>
+                    
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label for="star3" title="3 Bintang"><i class="fa-solid fa-star"></i></label>
+                    
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label for="star2" title="2 Bintang"><i class="fa-solid fa-star"></i></label>
+                    
+                    <input type="radio" id="star1" name="rating" value="1" />
+                    <label for="star1" title="1 Bintang"><i class="fa-solid fa-star"></i></label>
+                </div>
+
+                <textarea id="feedbackText" name="feedback" placeholder="Tuliskan masukan, saran, atau kritik Anda di sini..." required></textarea>
+                
+                <button type="submit" class="submit-btn"><i class="fa-brands fa-whatsapp" style="font-size: 1.2rem; margin-right: 8px;"></i> Kirim via WhatsApp</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function submitRating(event) {
+            event.preventDefault(); // Mencegah form reload halaman
+            
+            // Ambil nilai bintang yang dipilih
+            const ratingElement = document.querySelector('input[name="rating"]:checked');
+            if (!ratingElement) {
+                alert("Silakan pilih bintang penilaian terlebih dahulu!");
+                return;
+            }
+            
+            const ratingValue = ratingElement.value;
+            const feedbackText = document.getElementById('feedbackText').value;
+            
+            // Format pesan WhatsApp
+            let pesan = `Halo Admin Warung Kopi KPK, saya ingin memberikan penilaian dan masukan:\n\n`;
+            pesan += `⭐ *Penilaian:* ${ratingValue} Bintang\n`;
+            pesan += `📝 *Masukan:* ${feedbackText}\n\n`;
+            pesan += `Terima kasih!`;
+            
+            // Nomor WA tujuan (081267864037 diubah ke format 62)
+            const nomorWhatsApp = "6281267864037"; 
+            const urlWA = `https://wa.me/${nomorWhatsApp}?text=${encodeURIComponent(pesan)}`;
+            
+            // Buka WhatsApp di tab baru
+            window.open(urlWA, '_blank');
+            
+            // Reset form
+            document.querySelector('.feedback-form').reset();
+        }
+    </script>
+</body>
+</html>

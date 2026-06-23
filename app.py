@@ -22,14 +22,14 @@ def ask_ai_barista(user_message, dataset):
     for item in dataset:
         nama = item.get('nama_makanan') or item.get('nama_minuman') or item.get('nama_kopi') or ''
         harga = item.get('harga', 0)
-        desc = item.get('deskripsi_edukasi', '')
+        tags = item.get('tags', '')
         pr = item.get('profil_rasa', {})
         manis = pr.get('manis', 0)
         asam = pr.get('asam', 0)
         pahit = pr.get('pahit', 0)
         pedas = pr.get('pedas', 0)
         if nama:
-            menu_context += f"- {nama} (Rp{harga}): {desc} [Rasa: Manis {manis}/10, Asam {asam}/10, Pahit {pahit}/10, Pedas {pedas}/10]\n"
+            menu_context += f"- {nama} (Rp{harga}) [{tags}] Rasa: M{manis},A{asam},P{pahit},Pd{pedas}\n"
 
     system_prompt = f"""Kamu adalah Virtual Barista yang ramah, asik, dan berwawasan di 'Warung Kopi KPK' Padang.
     
@@ -71,7 +71,7 @@ DAFTAR MENU WARUNG KOPI KPK:
                 {"role": "user", "content": user_message}
             ],
             temperature=0.7,
-            max_tokens=512,
+            max_tokens=256,
         )
         return response.choices[0].message.content
     except Exception as e:

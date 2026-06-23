@@ -76,7 +76,7 @@ DAFTAR MENU WARUNG KOPI KPK:
         return response.choices[0].message.content
     except Exception as e:
         print(f"Error API Groq: {e}")
-        return None
+        return f"ERROR_API: {str(e)}"
 
 # ==========================================
 # PENGATURAN TERMINAL & DATASET
@@ -138,15 +138,20 @@ def chat():
     user_message_clean = user_message.strip()
 
     # SEMUA PESAN LANGSUNG MASUK KE AI
-    raw_ai_response = ask_ai_barista(user_message_clean, dataset_menu)
+    ai_response = ask_ai_barista(user_message, dataset_menu)
     
-    emotion = "neutral"
-    ai_response = raw_ai_response
-
-    if raw_ai_response:
+    if ai_response and str(ai_response).startswith("ERROR_API:"):
+        return jsonify({
+            "response": f"Waduh, koneksi error nih: {ai_response}", 
+            "includes_cards": False,
+            "emotion": "sad"
+        })
+        
+    if ai_response:
         import re
         # Ekstrak tag emosi dari Gemini: [HAPPY], [SAD], dll.
-        match = re.match(r'^\[(HAPPY|SAD|EXCITED|NEUTRAL)\](.*)', raw_ai_response.strip(), re.IGNORECASE | re.DOTALL)
+        match = re.match(r'^\[(HAPPY|SAD|EXCITED|NEUTRAL)\](.*)', ai_response.strip(), re.IGNORECASE | re.DOTALL)
+        emotion = "neutral"
         if match:
             emotion = match.group(1).lower()
             ai_response = match.group(2).strip()

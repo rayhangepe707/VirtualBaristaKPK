@@ -499,8 +499,8 @@
         if (SpeechRecognition) {
             recognition = new SpeechRecognition();
             recognition.lang = 'id-ID'; // Menggunakan Bahasa Indonesia
-            recognition.continuous = false;
-            recognition.interimResults = false;
+            recognition.continuous = false; // Otomatis mati saat berhenti bicara
+            recognition.interimResults = true; // Tampilkan kata-kata saat masih berbicara
 
             recognition.onstart = function() {
                 isRecording = true;
@@ -509,12 +509,24 @@
                 micBtn.classList.add('recording');
                 micBtn.innerHTML = '<i class="fa-solid fa-microphone-lines"></i>';
                 userInputNode.placeholder = "Mendengarkan suara Anda...";
+                userInputNode.value = ""; // Bersihkan kolom sebelumnya
             };
 
             recognition.onresult = function(event) {
-                const transcript = event.results[0][0].transcript;
-                document.getElementById('userInput').value = transcript;
-                sendMessage(); // Langsung kirim pesan setelah suara dikenali
+                let interim_transcript = '';
+                let final_transcript = '';
+
+                for (let i = event.resultIndex; i < event.results.length; ++i) {
+                    if (event.results[i].isFinal) {
+                        final_transcript += event.results[i][0].transcript;
+                    } else {
+                        interim_transcript += event.results[i][0].transcript;
+                    }
+                }
+                
+                const inputField = document.getElementById('userInput');
+                // Tampilkan hasil sementara dan akhir di input box
+                inputField.value = final_transcript + interim_transcript;
             };
 
             recognition.onerror = function(event) {
@@ -524,6 +536,10 @@
 
             recognition.onend = function() {
                 stopRecording();
+                const inputField = document.getElementById('userInput');
+                if (inputField.value.trim() !== "") {
+                    sendMessage(); // Otomatis kirim pesan setelah suara dikenali dan berhenti bicara
+                }
             };
         }
 

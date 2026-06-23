@@ -495,14 +495,13 @@
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         let recognition;
         let isRecording = false;
-        let silenceTimer; // Timer untuk deteksi diam
+        let initialText = "";
 
         if (SpeechRecognition) {
             recognition = new SpeechRecognition();
             recognition.lang = 'id-ID'; 
-            recognition.continuous = true; // Biarkan terus merekam agar tidak cepat putus
+            recognition.continuous = false; // Otomatis mati saat berhenti bicara
             recognition.interimResults = true; 
-            recognition.maxAlternatives = 1;
 
             recognition.onstart = function() {
                 isRecording = true;
@@ -511,19 +510,15 @@
                 micBtn.classList.add('recording');
                 micBtn.innerHTML = '<i class="fa-solid fa-microphone-lines"></i>';
                 userInputNode.placeholder = "Mendengarkan suara Anda...";
-                userInputNode.value = ""; 
                 
-                // Mulai hitung waktu diam
-                clearTimeout(silenceTimer);
-                silenceTimer = setTimeout(() => {
-                    if(isRecording) recognition.stop();
-                }, 4000); // Jika 4 detik pertama tidak ada suara, matikan
+                // Simpan teks yang sudah ada sebelumnya
+                initialText = userInputNode.value;
+                if (initialText.length > 0 && !initialText.endsWith(" ")) {
+                    initialText += " "; // Beri spasi jika sebelumnya sudah ada ketikan
+                }
             };
 
             recognition.onresult = function(event) {
-                // Reset timer setiap kali sistem mendeteksi kata-kata baru
-                clearTimeout(silenceTimer);
-                
                 let interim_transcript = '';
                 let final_transcript = '';
 
@@ -536,27 +531,19 @@
                 }
                 
                 const inputField = document.getElementById('userInput');
-                inputField.value = final_transcript + interim_transcript;
-
-                // Jika user diam selama 1.5 detik setelah ngomong, anggap selesai & kirim
-                silenceTimer = setTimeout(() => {
-                    if(isRecording) recognition.stop();
-                }, 1500);
+                // Gabungkan teks lama dengan hasil suara baru
+                inputField.value = initialText + final_transcript + interim_transcript;
             };
 
             recognition.onerror = function(event) {
                 console.error("Speech error:", event.error);
-                clearTimeout(silenceTimer);
                 stopRecording();
             };
 
             recognition.onend = function() {
-                clearTimeout(silenceTimer);
                 stopRecording();
-                const inputField = document.getElementById('userInput');
-                if (inputField.value.trim() !== "") {
-                    sendMessage();
-                }
+                // SENGAJA TIDAK ADA sendMessage() DI SINI
+                // Agar user bisa mengedit teksnya dulu sebelum dikirim secara manual
             };
         }
 

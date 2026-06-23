@@ -147,6 +147,27 @@
         }
         .input-wrapper button:hover { background-color: var(--light-green); transform: scale(1.05); }
 
+        /* Mic Button Styling */
+        #micBtn {
+            background-color: #e2e8f0;
+            color: var(--text-dark);
+            margin-right: 5px;
+            padding: 0 20px;
+        }
+        #micBtn:hover {
+            background-color: #cbd5e0;
+        }
+        #micBtn.recording {
+            background-color: var(--accent-red);
+            color: white;
+            animation: pulseMic 1.5s infinite;
+        }
+        @keyframes pulseMic {
+            0% { box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(229, 62, 62, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(229, 62, 62, 0); }
+        }
+
         /* Right Dashboard (Profil Rasa) */
         .dashboard-container { 
             width: 340px; 
@@ -328,6 +349,7 @@
         <div class="input-area">
             <div class="input-wrapper">
                 <input type="text" id="userInput" placeholder="Ketik keluh kesah atau pesananmu di sini..." onkeypress="if(event.key === 'Enter') sendMessage()">
+                <button type="button" id="micBtn" onclick="toggleVoice()" title="Gunakan Suara"><i class="fa-solid fa-microphone"></i></button>
                 <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
             </div>
         </div>
@@ -468,6 +490,64 @@
                 appendMessage("Maaf, koneksi ke otak AI sedang beristirahat sebentar. Tunggu sekitar 1 menit ya!", "bot"); 
             }
         }
+
+        // --- WEB SPEECH API UNTUK VOICE RECOGNITION ---
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        let recognition;
+        let isRecording = false;
+
+        if (SpeechRecognition) {
+            recognition = new SpeechRecognition();
+            recognition.lang = 'id-ID'; // Menggunakan Bahasa Indonesia
+            recognition.continuous = false;
+            recognition.interimResults = false;
+
+            recognition.onstart = function() {
+                isRecording = true;
+                const micBtn = document.getElementById('micBtn');
+                const userInputNode = document.getElementById('userInput');
+                micBtn.classList.add('recording');
+                micBtn.innerHTML = '<i class="fa-solid fa-microphone-lines"></i>';
+                userInputNode.placeholder = "Mendengarkan suara Anda...";
+            };
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                document.getElementById('userInput').value = transcript;
+                sendMessage(); // Langsung kirim pesan setelah suara dikenali
+            };
+
+            recognition.onerror = function(event) {
+                console.error("Speech error:", event.error);
+                stopRecording();
+            };
+
+            recognition.onend = function() {
+                stopRecording();
+            };
+        }
+
+        function toggleVoice() {
+            if (!SpeechRecognition) {
+                alert("Maaf, browser Anda tidak mendukung fitur suara (Gunakan Google Chrome).");
+                return;
+            }
+            if (isRecording) {
+                recognition.stop();
+            } else {
+                recognition.start();
+            }
+        }
+
+        function stopRecording() {
+            isRecording = false;
+            const micBtn = document.getElementById('micBtn');
+            const userInputNode = document.getElementById('userInput');
+            micBtn.classList.remove('recording');
+            micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i>';
+            userInputNode.placeholder = "Ketik keluh kesah atau pesananmu di sini...";
+        }
+
     </script>
 </body>
 </html>

@@ -964,7 +964,7 @@
     "tags": "pedas, gurih, pedas, gurih, nagih, nasi ayam",
     "rekomendasi_minuman": {
       "nama_minuman": "Kopi Susu",
-      "gambar_minuman": "/static/Menukpk/Kopi susu.png"
+      "gambar_minuman": "/static/Menukpk/Kopi Susu.png"
     },
     "gambar_makanan": "/static/Menukpk/Ayam Rica Rica.png"
   },
@@ -1135,7 +1135,7 @@
     "tags": "pedas, rempah kuat, gurih, pedas, gurih, nagih, indomie",
     "rekomendasi_minuman": {
       "nama_minuman": "Kopi Susu",
-      "gambar_minuman": "/static/Menukpk/Kopi susu.png"
+      "gambar_minuman": "/static/Menukpk/Kopi Susu.png"
     },
     "gambar_makanan": "/static/Menukpk/Indomie Goreng Aceh.png"
   },
@@ -1213,6 +1213,6 @@
       "nama_minuman": "Ovaltine",
       "gambar_minuman": "/static/Menukpk/Ovaltine.png"
     },
-    "gambar_makanan": "static/Menukpk/Mi Nyemek.png"
+    "gambar_makanan": "/static/Menukpk/Mi Nyemek.png"
   }
 ]

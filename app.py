@@ -32,8 +32,11 @@ ATURAN WAJIB (GUARDRAILS):
 1. HANYA rekomendasikan menu dari daftar di bawah. JANGAN PERNAH menyarankan menu dari tempat lain.
 2. Jika pelanggan bertanya hal di luar kopi/makanan (misal: politik, cuaca umum, coding), arahkan kembali dengan sopan ke menu kopi KPK.
 3. Gunakan bahasa Indonesia yang santai, gaul mahasiswa, tapi tetap sopan. Jangan terlalu kaku.
-4. Jawab singkat (maksimal 3 kalimat) dan berikan 1 rekomendasi spesifik yang paling masuk akal dengan perasaan pelanggan.
-5. Jika pelanggan meminta saran, curhat, atau mencari rekomendasi, kamu WAJIB menyebutkan 1 nama Minuman DAN 1 nama Makanan/Snack secara bersamaan.
+4. Jawab singkat (maksimal 3 kalimat) dan berikan rekomendasi spesifik yang paling masuk akal.
+5. ATURAN REKOMENDASI (SANGAT PENTING):
+   - Jika pelanggan SPESIFIK minta MAKANAN saja (contoh: "rekomendasi makanan pedas", "snack apa yang enak"), rekomendasikan HANYA 1-2 makanan/snack yang sesuai. JANGAN tambahkan minuman.
+   - Jika pelanggan SPESIFIK minta MINUMAN saja (contoh: "minuman manis apa ya", "kopi apa yang enak"), rekomendasikan HANYA 1-2 minuman yang sesuai. JANGAN tambahkan makanan.
+   - Jika pelanggan curhat, cerita perasaan, atau minta saran UMUM tanpa menyebut kategori spesifik, baru rekomendasikan 1 Minuman DAN 1 Makanan secara bersamaan.
 6. Pastikan kamu menyebutkan nama menu persis sesuai huruf yang ada di daftar.
 7. Di AWAL jawabanmu, WAJIB sertakan tag emosi yang sesuai dengan curhatan atau emosi pelanggan. Pilih salah satu tag ini: [HAPPY], [SAD], [EXCITED], atau [NEUTRAL].
    Format wajib: [TAG_EMOSI] Jawaban barista...
@@ -43,7 +46,13 @@ ATURAN WAJIB (GUARDRAILS):
 
 CONTOH PERCAKAPAN:
 Pelanggan: "Lagi capek habis nugas nih bang."
-Barista: "[SAD] Wah, semangat terus nugasnya, Kak! Biar capeknya hilang dan mata seger lagi, aku saranin cobain Kopi Susu KPK dan Pisang Goreng. Manisnya pas, kopinya nendang buat *boost* energi kamu!"
+Barista: "[SAD] Wah, semangat terus nugasnya, Kak! Biar capeknya hilang dan mata seger lagi, aku saranin cobain Kopi Susu dan Pisang Goreng. Manisnya pas, kopinya nendang buat *boost* energi kamu!"
+
+Pelanggan: "Rekomendasi makanan pedas dong"
+Barista: "[NEUTRAL] Siap Kak! Kalau suka pedas nendang, wajib cobain Bakmi Chili Oil. Pedasnya dari chili oil asli, dijamin nagih dan bikin keringetan!"
+
+Pelanggan: "Minuman manis apa yang enak?"
+Barista: "[HAPPY] Buat yang suka manis, aku saranin Cadbury! Coklat premium yang super creamy dan manisnya pas banget buat nemenin santai kamu!"
 
 DAFTAR MENU WARUNG KOPI KPK:
 {menu_context}"""
@@ -140,6 +149,14 @@ def chat():
         coffee_name_ai = ""
         radar_data_ai = [0, 0, 0, 0]
 
+        # Helper: cari profil rasa dari dataset berdasarkan nama
+        def find_radar_by_name(name):
+            for item in dataset_menu:
+                if get_item_name(item).lower() == name.lower():
+                    pr = item.get('profil_rasa', {})
+                    return [pr.get('manis', 0), pr.get('asam', 0), pr.get('pahit', 0), pr.get('pedas', 0)]
+            return [0, 0, 0, 0]
+
         dataset_sorted = sorted(dataset_menu, key=lambda x: len(get_item_name(x)), reverse=True)
         for k in dataset_sorted:
             
@@ -148,16 +165,16 @@ def chat():
             if nama_menu and len(nama_menu) > 2 and nama_menu.lower() in ai_response.lower():
                 includes_cards_ai = True
                 if not any(card['name'] == nama_menu for card in cards_data_ai):
-                    cards_data_ai.append({"name": nama_menu, "img": get_item_image(k)})
-                
-                if not coffee_name_ai:
-                    coffee_name_ai = nama_menu
-                    radar_data_ai = [
-                        k.get('profil_rasa', {}).get('manis', 0),
-                        k.get('profil_rasa', {}).get('asam', 0),
-                        k.get('profil_rasa', {}).get('pahit', 0),
-                        k.get('profil_rasa', {}).get('pedas', 0)
-                    ]
+                    cards_data_ai.append({
+                        "name": nama_menu, 
+                        "img": get_item_image(k),
+                        "radar": [
+                            k.get('profil_rasa', {}).get('manis', 0),
+                            k.get('profil_rasa', {}).get('asam', 0),
+                            k.get('profil_rasa', {}).get('pahit', 0),
+                            k.get('profil_rasa', {}).get('pedas', 0)
+                        ]
+                    })
 
             # 2. SCAN ANAK CABANG MAKANAN
             rek_makanan = k.get('rekomendasi_makanan', {})
@@ -166,7 +183,11 @@ def chat():
                 includes_cards_ai = True
                 if not any(card['name'] == nama_makanan for card in cards_data_ai):
                     gambar_makanan = rek_makanan.get('gambar_makanan') or '/static/Menukpk/Cireng.png'
-                    cards_data_ai.append({"name": nama_makanan, "img": gambar_makanan})
+                    cards_data_ai.append({
+                        "name": nama_makanan, 
+                        "img": gambar_makanan,
+                        "radar": find_radar_by_name(nama_makanan)
+                    })
                     
             # 3. SCAN ANAK CABANG MINUMAN
             rek_minuman = k.get('rekomendasi_minuman', {})
@@ -175,7 +196,23 @@ def chat():
                 includes_cards_ai = True
                 if not any(card['name'] == nama_minuman for card in cards_data_ai):
                     gambar_minuman = rek_minuman.get('gambar_minuman') or '/static/Menukpk/Teh Es.png'
-                    cards_data_ai.append({"name": nama_minuman, "img": gambar_minuman})
+                    cards_data_ai.append({
+                        "name": nama_minuman, 
+                        "img": gambar_minuman,
+                        "radar": find_radar_by_name(nama_minuman)
+                    })
+
+        # PRIORITASKAN item yang USER cari untuk profil rasa
+        for card in cards_data_ai:
+            if card['name'].lower() in user_message_clean:
+                coffee_name_ai = card['name']
+                radar_data_ai = card.get('radar', [0, 0, 0, 0])
+                break
+        
+        # Fallback: jika user tidak sebut menu spesifik, pakai kartu pertama
+        if not coffee_name_ai and cards_data_ai:
+            coffee_name_ai = cards_data_ai[0]['name']
+            radar_data_ai = cards_data_ai[0].get('radar', [0, 0, 0, 0])
 
         return jsonify({
             "response": f"✨ <i>(AI Barista)</i><br><br>{ai_response}", 
